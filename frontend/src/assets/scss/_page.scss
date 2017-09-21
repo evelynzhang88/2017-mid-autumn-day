@@ -1,0 +1,137 @@
+@mixin fullabsolute($left,$top,$w,$h,$zindex){
+  position: absolute;
+  left: $left;
+  top: $top;
+  z-index: $zindex;
+  @include size($w,$h);
+}
+
+/*Common setting for all page*/
+html,body{
+  width: 100%;
+  height: 100%;
+}
+
+//for wrapper
+.wrapper{
+  opacity: 0;
+  @include fullabsolute(0,0,100%,100%,1);
+}
+.container{
+  @include fullabsolute(0,0,100%,100%,10);
+}
+.pin{
+  opacity: 0;
+  z-index: -10;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  @include size(100%,100%);
+  padding-top: 1.6rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  @include transition(opacity 1s);
+  //display: none;
+  &.current{
+    display: block;
+    opacity: 1;
+    z-index: 1;
+  }
+}
+
+
+//for preload
+.preload{
+  @include fullabsolute(0,0,100%,100%,100);
+  //background: url("../images/preload-bg.jpg") center center no-repeat;
+  background-size: cover;
+  .animate-flower{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    @include transition(opacity 4s linear);
+    //background: url("../images/preload-flower.jpg")  center center no-repeat;
+    background-size: cover;
+    &.fadenow{
+      opacity: 1;
+    }
+  }
+  .loading-num{
+    position: absolute;
+    right: 2.8rem;
+    bottom: 10vh;
+    width: 1.2rem;
+    height: 0.6rem;
+    @include transform(rotate(90deg));
+    .num{
+      width: .6rem;
+      height: .6rem;
+      display: inline-block;
+      text-align: center;
+    }
+  }
+}
+
+.logo{
+  @include size(2.46rem,0.53rem);
+}
+
+.bg-video{
+  @include fullabsolute(0,0,100%,100%,1);
+  background: #fefaf1;
+  .img-sequece{
+    img{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      @include transform(translate(-50%,-50%));
+    }
+  }
+}
+.pin-content{
+  @include fullabsolute(0,0,100%,100%,2);
+  //background: rgba(0,0,0,0.3);
+  .t1{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    @include transform(translate(-50%,-50%));
+    @include size(1.47rem,4.9rem);
+  }
+  &.pin-content-white{
+    background: rgba(255,255,0,0.3);
+  }
+  &.pin-content-red{
+    background: rgba(255,0,0,0.3);
+  }
+  &.pin-content-green{
+    background: rgba(0,255,0,0.3);
+  }
+}
+
+//For swiper
+.swiper-container {
+  @include fullabsolute(0,0,100%,100%,2);
+  background: red;
+  .mask{
+    @include fullabsolute(0%,0%,100%,100%,3);
+    //background: green;
+    //border-radius: 100%;
+    //-webkit-mask-image: url('../images/mask.png');
+    //-webkit-mask-image: url(#aaa);
+    //-webkit-mask-repeat: no-repeat;
+    //-webkit-mask-size: 100%;
+    //-webkit-mask-position: center center;
+    transition: all 1s;
+    clip-path: circle(10px at center);
+  }
+  .swiper-slide-active{
+    .mask{
+      clip-path: circle(1000px at center);
+      //-webkit-mask-size: 2000%;
+    }
+  }
+}
