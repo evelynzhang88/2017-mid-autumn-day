@@ -1255,6 +1255,9 @@ html, body {
 #page-home .btn-start {
   text-align: center;
 }
+#page-home .btn-start a {
+  color: #000;
+}
 #page-home .btn-start span {
   display: inline-block;
   font-size: 0.3rem;
