@@ -22,7 +22,7 @@ var path = {
     ],
     template:['./template/*.html'],
     css:['./src/assets/css/*.css'],
-    jsHome:[
+    jsScenes:[
         './src/assets/js/lib/zepto.min.js',
         './src/assets/js/lib/pre-loader.js',
         './src/assets/js/lib/reqAnimate.js',
@@ -31,7 +31,7 @@ var path = {
         './src/assets/js/common.js',
         //'./src/assets/js/wxshare.js',
         './src/assets/js/api.js',
-        './src/assets/js/home.js'
+        './src/assets/js/scenes.js'
     ],
     images:[
         './src/assets/*.{png,jpg,jpeg}',
@@ -69,11 +69,11 @@ gulp.task('css',['clean'],function () {
 });
 
 // Concatenate & Minify
-gulp.task('scripts_home',['clean'], function() {
-    return gulp.src(path.jsHome)
-        .pipe(concat('all_home.js'))
+gulp.task('scripts_scenes',['clean'], function() {
+    return gulp.src(path.jsScenes)
+        .pipe(concat('all_scenes.js'))
         .pipe(gulp.dest('./src/dist'))
-        .pipe(rename('all_home.min.js'))
+        .pipe(rename('all_scenes.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('./src/dist/js'));
 });
@@ -94,10 +94,10 @@ gulp.task("tinypng", function(){
 // Watch Files For Changes
 gulp.task('watch', ['clean'],function() {
     gulp.watch(path.css,['css']);
-    gulp.watch(path.jsHome,['scripts_home']);
+    gulp.watch(path.jsScenes,['scripts_scenes']);
 });
 
 // Default Task
-gulp.task('default', ['watch', 'css','scripts_home','browser-sync']);
+gulp.task('default', ['watch', 'css','scripts_scenes','browser-sync']);
 
 
