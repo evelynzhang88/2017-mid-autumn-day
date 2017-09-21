@@ -107,18 +107,6 @@ p {
   font-size: 0.28rem;
 }
 
-.logo {
-  position: absolute;
-  top: 0.6rem;
-  z-index: 10;
-  left: 50%;
-  -webkit-transform: translate(-50%);
-  -moz-transform: translate(-50%);
-  -ms-transform: translate(-50%);
-  -o-transform: translate(-50%);
-  transform: translate(-50%);
-}
-
 .btn {
   text-align: center;
   display: block;
@@ -1237,6 +1225,54 @@ html, body {
   z-index: 1;
 }
 
+.logo {
+  width: 3.88rem;
+  height: 1.8rem;
+}
+
+/*Start home page*/
+#page-home {
+  opacity: 1;
+  background: url("../images/bg-home.jpg") no-repeat;
+  background-size: 100%;
+}
+#page-home .logo {
+  padding-top: 0.6rem;
+  margin: 0 auto;
+}
+#page-home .title {
+  margin-top: 5.7rem;
+  text-align: center;
+  font-size: 0.7rem;
+}
+#page-home .icon-flower {
+  width: 0.45rem;
+  height: 0.45rem;
+  background: url("../images/icon-flower.png") no-repeat;
+  background-size: 100%;
+  margin: 0.2rem auto;
+}
+#page-home .btn-start {
+  text-align: center;
+}
+#page-home .btn-start span {
+  display: inline-block;
+  font-size: 0.3rem;
+  text-transform: uppercase;
+  text-align: center;
+  vertical-align: middle;
+}
+#page-home .btn-start span:before, #page-home .btn-start span:after {
+  content: '';
+  display: inline-block;
+  width: 1.4rem;
+  height: .02rem;
+  margin: -0.01rem .2rem;
+  background: #dcab7b;
+  vertical-align: middle;
+}
+
+/*------End home page------*/
 .preload {
   position: absolute;
   left: 0;
@@ -1279,11 +1315,6 @@ html, body {
   height: .6rem;
   display: inline-block;
   text-align: center;
-}
-
-.logo {
-  width: 2.46rem;
-  height: 0.53rem;
 }
 
 .bg-video {

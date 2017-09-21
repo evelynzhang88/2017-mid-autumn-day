@@ -34,9 +34,9 @@ var path = {
         './src/assets/js/scenes.js'
     ],
     images:[
-        './src/assets/*.{png,jpg,jpeg}',
         './src/assets/*/*.{png,jpg,jpeg}',
-        './src/assets/*/*/*.{png,jpg,jpeg}'
+        //'./src/assets/*/*.{png,jpg,jpeg}',
+        //'./src/assets/*/*/*.{png,jpg,jpeg}'
     ],
 };
 // Browser-sync

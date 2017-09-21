@@ -39,6 +39,51 @@ html,body{
   }
 }
 
+.logo{
+  @include size(3.88rem,1.8rem);
+}
+/*Start home page*/
+#page-home{
+  opacity: 1;
+  background: url("../images/bg-home.jpg") no-repeat;
+  background-size: 100%;
+  .logo{
+    padding-top: 0.6rem;
+    margin: 0 auto;
+  }
+  .title{
+    margin-top: 5.7rem;
+    text-align: center;
+    font-size: 0.7rem;
+  }
+  .icon-flower{
+    @include size(0.45rem,0.45rem);
+    background: url("../images/icon-flower.png") no-repeat;
+    background-size: 100%;
+    margin: 0.2rem auto;
+  }
+  .btn-start{
+    text-align: center;
+    span{
+      display: inline-block;
+      font-size: 0.3rem;
+      text-transform: uppercase;
+      text-align: center;
+      vertical-align: middle;
+      &:before,&:after{
+        content: '';
+        display: inline-block;
+        width: 1.4rem;
+        height: .02rem;
+        margin: -0.01rem .2rem;
+        background: #dcab7b;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+/*------End home page------*/
+
 
 //for preload
 .preload{
@@ -75,9 +120,6 @@ html,body{
   }
 }
 
-.logo{
-  @include size(2.46rem,0.53rem);
-}
 
 .bg-video{
   @include fullabsolute(0,0,100%,100%,1);
