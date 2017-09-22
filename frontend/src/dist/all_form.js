@@ -440,42 +440,78 @@ $(document).ready(function(){
 
     controller.prototype.startUp = function(){
         var self = this;
-        $('.preload').remove();
         $('.wrapper').addClass('fade');
         Common.gotoPin(0);
+        self.bindEvent();
     };
 
-    controller.prototype.ImgSequece = function(){
+    controller.prototype.bindEvent = function(){
         var self = this;
-        var j=0;
-        var enableSequence = true;
-        var reqAnimateDemo = new reqAnimate($('.swiper-slide-1 .img-sequece img'),{
-            fps: 16,
-            totalFrames: 127,
-            //time: 0,
-            processAnimation: function(){
-                var imgName = self.img_path[j];
-                if(j>self.img_path.length-2){
-                    enableSequence=false;
-                }
-                if(j==0){
-                    enableSequence=true;
-                }
-                if(enableSequence){
-                    j++;
-                }else{
-                    j--;
-                }
-                $('.swiper-slide-1 .img-sequece img').attr('src',imgName);
-            },
-            doneAnimation: function(){
-
-                //show box and letter
+        $('.btn-submit').on('touchstart',function(){
+            if(self.validateForm()){
+                //name mobile province city area address
+                var inputNameVal = $('#input-name').val(),
+                    inputMobileVal = $('#input-mobile').val(),
+                    inputAddressVal = $('#input-address').val(),
+                    inputMsgCodeVal = $('#input-validate-message-code').val(),
+                    selectProvinceVal = $('#select-province').val(),
+                    selectCityVal = $('#select-city').val(),
+                    selectDistrictVal = $('#select-district').val();
+                Api.submitForm_freetrial({
+                    name:inputNameVal,
+                    mobile:inputMobileVal,
+                    province:selectProvinceVal,
+                    city:selectCityVal,
+                    msgCode:inputMsgCodeVal,
+                    area:selectDistrictVal,
+                    address:inputAddressVal
+                },function(data){
+                    if(data.status==1){
+                        Common.gotoPin(1);
+                    }else{
+                        Common.alertBox.add(data.msg);
+                    }
+                });
             }
-        });
-        reqAnimateDemo.start();
-    };
 
+        });
+    }
+
+    //validation the form
+    controller.prototype.validateForm = function(){
+        var self = this;
+        var validate = true,
+            inputName = document.getElementById('input-name'),
+            inputMobile = document.getElementById('input-mobile'),
+            inputEmail = document.getElementById('input-email'),
+            inputProduct = document.getElementById('input-product');
+
+        if(!inputName.value){
+            Common.errorMsgBox.add('请填写姓名');
+            validate = false;
+        };
+
+        if(!inputMobile.value){
+            Common.errorMsgBox.add('手机号码不能为空');
+            //Common.errorMsg.add(inputMobile.parentElement,'手机号码不能为空');
+            validate = false;
+        }else{
+            var reg=/^1\d{10}$/;
+            if(!(reg.test(inputMobile.value))){
+                validate = false;
+                Common.errorMsgBox.add('手机号格式错误，请重新输入');
+                //Common.errorMsg.add(inputMobile.parentElement,'手机号格式错误，请重新输入');
+            }else{
+                //Common.errorMsg.remove(inputMobile.parentElement);
+            }
+        }
+
+
+        if(validate){
+            return true;
+        }
+        return false;
+    };
 
 
 
