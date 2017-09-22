@@ -1416,16 +1416,16 @@ html, body {
   height: 100%;
 }
 .pin-content.pin-content-white {
-  background: rgba(255, 255, 0, 0.3);
+  background: rgba(255, 255, 255, 0.3);
 }
 .pin-content.pin-content-black {
   background: rgba(0, 0, 0, 0.3);
 }
 .pin-content.pin-content-gold {
-  background: rgba(150, 0, 0, 0.3);
+  background: rgba(255, 255, 0, 0.3);
 }
 .pin-content.pin-content-brown {
-  background: rgba(150, 50, 0, 0.3);
+  background: rgba(255, 0, 255, 0.3);
 }
 .pin-content .t1 {
   position: absolute;
@@ -1468,7 +1468,7 @@ html, body {
   z-index: 2;
   width: 100%;
   height: 100%;
-  background: red;
+  background: url("../images/01_img-seq/01_001.jpg") no-repeat;
 }
 .swiper-container .mask {
   position: absolute;
@@ -1477,9 +1477,17 @@ html, body {
   z-index: 3;
   width: 100%;
   height: 100%;
-  transition: all 1s;
-  clip-path: circle(10px at center);
 }
-.swiper-container .swiper-slide-active .mask {
-  clip-path: circle(1000px at center);
+.swiper-container .swiper-slide {
+  transition: clip-path 1s;
+  -webkit-transition: -webkit-clip-path 1s;
+}
+.swiper-container .swiper-slide-next {
+  clip-path: circle(0px at center);
+  -webkit-clip-path: circle(0px at center);
+  opacity: 1 !important;
+}
+.swiper-container .swiper-slide-active {
+  clip-path: circle(500px at center);
+  -webkit-clip-path: circle(500px at center);
 }

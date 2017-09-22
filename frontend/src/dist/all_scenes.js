@@ -966,18 +966,49 @@ Api = {
             fade: {
                 crossFade: false
             },
-            flip: {
-                slideShadows : false,
-                limitRotation: false
+            //speed:0,
+            watchSlidesProgress:true,
+            onProgress:function(swiper, progress){
+
+                //console.log(swiper);
+                var interleaveOffset = -.5;
+                var clipPath = 200;
+                //for (var i = 0; i < swiper.slides.length; i++){
+                //    var slide = swiper.slides[i];
+                //    var translate, innerTranslate,clipPath_slide;
+                //    console.log(progress);
+                //    if (progress > 0) {
+                //        translate = progress * swiper.width;
+                //        innerTranslate = translate * interleaveOffset;
+                //        clipPath_slide = progress*clipPath;
+                //    }
+                //    else {
+                //        innerTranslate = Math.abs( progress * swiper.width ) * interleaveOffset;
+                //        translate = 0;
+                //        clipPath_slide = 0;
+                //    }
+                //
+                //
+                //
+                //
+                //    $(slide).css({
+                //        //transform: 'translate3d(' + translate + 'px,0,0)',
+                //        clipPath:'circle('+clipPath_slide+'px at center)'
+                //    });
+                //
+                //    $(slide).find('.slide-inner').css({
+                //        //transform: 'translate3d(' + innerTranslate + 'px,0,0)',
+                //        background:'red'
+                //    });
+                //}
             },
-            parallax:true,
             onSlideNextStart:function(swiper){
                 //$('.swiper-container').css('background','red');
                 //console.log(swiper);
-                //swiper.effects.fade.setTranslate = function(e){
-                //    console.log(e);
-                //
-                //}
+                swiper.effects.fade.setTransition = function(e){
+                    //console.log(e);
+
+                };
                 //$('.swiper-wrapper').css({
                 //    backgroundImage:"url('src/dist/images/01_img-seq/01_001.jpg')"
                 //})
@@ -989,6 +1020,14 @@ Api = {
                 //swiper.effects.fade.setTranslate = function(e){
                 //        console.log(e);
                 //}
+                //var curIndex = swiper.activeIndex;
+                //var clipPath_slide = 1000*Math.abs(translate/$(window).width())/(curIndex+1);
+                //console.log(Math.abs(translate/$(window).width())/(curIndex) - 0.5);
+                //$('.swiper-slide').css({
+                //    clipPath:'circle(0px at center)'
+                //}).eq(swiper.activeIndex).css({
+                //    clipPath:'circle(270px at center)'
+                //});
             },
             // If we need pagination
             //pagination: '.swiper-pagination',

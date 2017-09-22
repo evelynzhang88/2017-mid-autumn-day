@@ -151,16 +151,16 @@ html,body{
 .pin-content{
   @include fullabsolute(0,0,100%,100%,2);
   &.pin-content-white{
-    background: rgba(255,255,0,0.3);
+    background: rgba(255,255,255,0.3);
   }
   &.pin-content-black{
     background: rgba(0,0,0,0.3);
   }
   &.pin-content-gold{
-    background: rgba(150,0,0,0.3);
+    background: rgba(255,255,0,0.3);
   }
   &.pin-content-brown{
-    background: rgba(150,50,0,0.3);
+    background: rgba(255,0,255,0.3);
   }
   //background: rgba(0,0,0,0.3);
   .t1{
@@ -195,7 +195,7 @@ html,body{
 //For swiper
 .swiper-container {
   @include fullabsolute(0,0,100%,100%,2);
-  background: red;
+  background:url('../images/01_img-seq/01_001.jpg') no-repeat;
   .mask{
     @include fullabsolute(0%,0%,100%,100%,3);
     //background: green;
@@ -205,13 +205,35 @@ html,body{
     //-webkit-mask-repeat: no-repeat;
     //-webkit-mask-size: 100%;
     //-webkit-mask-position: center center;
-    transition: all 1s;
-    clip-path: circle(10px at center);
+    //transition: all 1s;
+    //-webkit-clip-path: circle(100px at center);
+    //clip-path: circle(100px at center);
+
+    //mask: url(#masking);
+    //-webkit-mask:url(#masking) ;
+    //clip-path: polygon(50% 5%, 0% 100%, 100% 100%);
+
+  }
+  .swiper-slide{
+    //clip-path: circle(0px at center);
+    //-webkit-clip-path: circle(0px at center);
+    //transition: clip-path 1s;
+    transition: clip-path 1s;
+    -webkit-transition: -webkit-clip-path 1s;
+  }
+  .swiper-slide-next{
+    clip-path: circle(0px at center);
+    -webkit-clip-path: circle(0px at center);
+    opacity: 1 !important;
   }
   .swiper-slide-active{
+    clip-path: circle(500px at center);
+    -webkit-clip-path: circle(500px at center);
     .mask{
-      clip-path: circle(1000px at center);
+      //clip-path: circle(1000px at center);
       //-webkit-mask-size: 2000%;
+      //-webkit-clip-path: circle(2000px at center);
+      //clip-path: circle(2000px at center);
     }
   }
 }
