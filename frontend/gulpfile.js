@@ -33,6 +33,13 @@ var path = {
         './src/assets/js/api.js',
         './src/assets/js/scenes.js'
     ],
+    jsDiscover:[
+        './src/assets/js/lib/zepto.min.js',
+        './src/assets/js/rem.js',
+        './src/assets/js/common.js',
+        //'./src/assets/js/wxshare.js',
+        './src/assets/js/discover.js'
+    ],
     images:[
         './src/assets/*/*.{png,jpg,jpeg}',
         //'./src/assets/*/*.{png,jpg,jpeg}',
@@ -77,6 +84,15 @@ gulp.task('scripts_scenes',['clean'], function() {
         .pipe(uglify())
         .pipe(gulp.dest('./src/dist/js'));
 });
+gulp.task('scripts_discover',['clean'], function() {
+    return gulp.src(path.jsDiscover)
+        .pipe(concat('all_discover.js'))
+        .pipe(gulp.dest('./src/dist'))
+        .pipe(rename('all_discover.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('./src/dist/js'));
+});
+//jsDiscover
 
 // Concatenate & Minify
 gulp.task("tinypng", function(){
@@ -95,9 +111,10 @@ gulp.task("tinypng", function(){
 gulp.task('watch', ['clean'],function() {
     gulp.watch(path.css,['css']);
     gulp.watch(path.jsScenes,['scripts_scenes']);
+    gulp.watch(path.jsDiscover,['scripts_discover']);
 });
 
 // Default Task
-gulp.task('default', ['watch', 'css','scripts_scenes','browser-sync']);
+gulp.task('default', ['watch', 'css','scripts_scenes','scripts_discover','browser-sync']);
 
 

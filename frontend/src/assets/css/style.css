@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Welcome to Compass.
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
@@ -1178,6 +1179,73 @@ button.swiper-pagination-bullet {
     transform: rotate(360deg);
   }
 }
+.row {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-1 {
+  width: calc(1*100% / 12);
+  box-sizing: border-box;
+}
+
+.col-2 {
+  width: calc(2*100% / 12);
+  box-sizing: border-box;
+}
+
+.col-3 {
+  width: calc(3*100% / 12);
+  box-sizing: border-box;
+}
+
+.col-4 {
+  width: calc(4*100% / 12);
+  box-sizing: border-box;
+}
+
+.col-5 {
+  width: calc(5*100% / 12);
+  box-sizing: border-box;
+}
+
+.col-6 {
+  width: calc(6*100% / 12);
+  box-sizing: border-box;
+}
+
+.col-7 {
+  width: calc(7*100% / 12);
+  box-sizing: border-box;
+}
+
+.col-8 {
+  width: calc(8*100% / 12);
+  box-sizing: border-box;
+}
+
+.col-9 {
+  width: calc(9*100% / 12);
+  box-sizing: border-box;
+}
+
+.col-10 {
+  width: calc(10*100% / 12);
+  box-sizing: border-box;
+}
+
+.col-11 {
+  width: calc(11*100% / 12);
+  box-sizing: border-box;
+}
+
+.col-12 {
+  width: calc(12*100% / 12);
+  box-sizing: border-box;
+}
+
 /*Common setting for all page*/
 html, body {
   width: 100%;
@@ -1348,10 +1416,23 @@ html, body {
   width: 100%;
   height: 100%;
 }
+.pin-content.pin-content-white {
+  background: rgba(255, 255, 0, 0.3);
+}
+.pin-content.pin-content-black {
+  background: rgba(0, 0, 0, 0.3);
+}
+.pin-content.pin-content-gold {
+  background: rgba(150, 0, 0, 0.3);
+}
+.pin-content.pin-content-brown {
+  background: rgba(150, 50, 0, 0.3);
+}
 .pin-content .t1 {
   position: absolute;
   left: 50%;
   top: 50%;
+  z-index: 2;
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -1360,14 +1441,25 @@ html, body {
   width: 1.47rem;
   height: 4.9rem;
 }
-.pin-content.pin-content-white {
-  background: rgba(255, 255, 0, 0.3);
+.pin-content .discovery {
+  position: absolute;
+  width: 2rem;
+  height: 3rem;
+  z-index: 3;
+  opacity: 0;
 }
-.pin-content.pin-content-red {
-  background: rgba(255, 0, 0, 0.3);
+.pin-content .discovery.discovery－top {
+  left: 0.5rem;
+  top: 0;
 }
-.pin-content.pin-content-green {
-  background: rgba(0, 255, 0, 0.3);
+.pin-content .discovery.discovery－bottom {
+  right: 0.5rem;
+  bottom: 0;
+}
+.pin-content .discovery a {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .swiper-container {

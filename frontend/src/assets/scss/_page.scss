@@ -6,6 +6,19 @@
   @include size($w,$h);
 }
 
+.row{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+@for $i from 1 through 12{
+  .col-#{$i}{
+    width: calc(#{$i}*100% / 12);
+    box-sizing: border-box;
+  }
+}
+
 /*Common setting for all page*/
 html,body{
   width: 100%;
@@ -138,22 +151,45 @@ html,body{
 }
 .pin-content{
   @include fullabsolute(0,0,100%,100%,2);
+  &.pin-content-white{
+    background: rgba(255,255,0,0.3);
+  }
+  &.pin-content-black{
+    background: rgba(0,0,0,0.3);
+  }
+  &.pin-content-gold{
+    background: rgba(150,0,0,0.3);
+  }
+  &.pin-content-brown{
+    background: rgba(150,50,0,0.3);
+  }
   //background: rgba(0,0,0,0.3);
   .t1{
     position: absolute;
     left: 50%;
     top: 50%;
+    z-index: 2;
     @include transform(translate(-50%,-50%));
     @include size(1.47rem,4.9rem);
   }
-  &.pin-content-white{
-    background: rgba(255,255,0,0.3);
-  }
-  &.pin-content-red{
-    background: rgba(255,0,0,0.3);
-  }
-  &.pin-content-green{
-    background: rgba(0,255,0,0.3);
+  .discovery{
+    position: absolute;
+    width: 2rem;
+    height: 3rem;
+    z-index: 3;
+    opacity: 0;
+    &.discovery－top{
+      left: 0.5rem;
+      top: 0;
+    }
+    &.discovery－bottom{
+      right: 0.5rem;
+      bottom: 0;
+    }
+    a{
+      display: block;
+      @include size(100%,100%);
+    }
   }
 }
 
