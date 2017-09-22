@@ -107,6 +107,10 @@
             Common.errorMsgBox.add('请填写姓名');
             validate = false;
         };
+        if(!inputProduct.value){
+            Common.errorMsgBox.add('请填写预定的产品名');
+            validate = false;
+        };
 
         if(!inputMobile.value){
             Common.errorMsgBox.add('手机号码不能为空');
@@ -120,6 +124,18 @@
                 //Common.errorMsg.add(inputMobile.parentElement,'手机号格式错误，请重新输入');
             }else{
                 //Common.errorMsg.remove(inputMobile.parentElement);
+            }
+        }
+        if(!inputEmail.value){
+            Common.errorMsgBox.add('邮箱不能为空');
+            validate = false;
+        }else{
+            var regMail=/^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+            if(!(regMail.test(inputEmail.value))){
+                validate = false;
+                Common.errorMsgBox.add('邮箱格式错误，请重新输入');
+            }else{
+                //Common.errorMsg.remove(inputEmail.parentElement);
             }
         }
 
