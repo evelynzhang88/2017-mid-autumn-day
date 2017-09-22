@@ -40,7 +40,6 @@ html,body{
   left: 0;
   bottom: 0;
   @include size(100%,100%);
-  padding-top: 1.6rem;
   box-sizing: border-box;
   overflow: hidden;
   @include transition(opacity 1s);

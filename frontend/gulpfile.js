@@ -40,6 +40,13 @@ var path = {
         //'./src/assets/js/wxshare.js',
         './src/assets/js/discover.js'
     ],
+    jsForm:[
+        './src/assets/js/lib/zepto.min.js',
+        './src/assets/js/rem.js',
+        './src/assets/js/common.js',
+        //'./src/assets/js/wxshare.js',
+        './src/assets/js/form.js'
+    ],
     images:[
         './src/assets/*/*.{png,jpg,jpeg}',
         //'./src/assets/*/*.{png,jpg,jpeg}',
@@ -92,7 +99,14 @@ gulp.task('scripts_discover',['clean'], function() {
         .pipe(uglify())
         .pipe(gulp.dest('./src/dist/js'));
 });
-//jsDiscover
+gulp.task('scripts_form',['clean'], function() {
+    return gulp.src(path.jsForm)
+        .pipe(concat('all_form.js'))
+        .pipe(gulp.dest('./src/dist'))
+        .pipe(rename('all_form.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('./src/dist/js'));
+});
 
 // Concatenate & Minify
 gulp.task("tinypng", function(){
@@ -112,9 +126,10 @@ gulp.task('watch', ['clean'],function() {
     gulp.watch(path.css,['css']);
     gulp.watch(path.jsScenes,['scripts_scenes']);
     gulp.watch(path.jsDiscover,['scripts_discover']);
+    gulp.watch(path.jsForm,['scripts_form']);
 });
 
 // Default Task
-gulp.task('default', ['watch', 'css','scripts_scenes','scripts_discover','browser-sync']);
+gulp.task('default', ['watch', 'css','scripts_scenes','scripts_discover','scripts_form','browser-sync']);
 
 
